@@ -13,3 +13,5 @@ $config['defaults']['phone'] = '(888) 511-1031';
 $config['defaults']['hostmaster'] = 'hostmaster@esited.com';
 $config['defaults']['tech_contact'] = 'TONGB-ARIN';
 $config['defaults']['admin_contact'] = 'TONGB-ARIN';
+
+$config['user']['rwhois'] = 'SpaHEja5';

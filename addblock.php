@@ -17,6 +17,8 @@ dolog('starting to add a block');
 // country - optional
 // phone - optional
 $data = array(
+	'user'			=>	'',
+	'password'		=>	'',
 	'company'		=>	'',
 	'auth_area'		=>	'',
 	'net_block'		=>	'',
@@ -34,9 +36,15 @@ $data = array_merge($data,$config['defaults'],$_REQUEST);
 
 //validate
 try {
+	//verify input
+	if(empty($data['user'])) throw new Exception('user required');
+	if(empty($data['password'])) throw new Exception('password required');
 	if(empty($data['auth_area'])) throw new Exception('auth area required');
 	if(empty($data['net_block'])) throw new Exception('net block required');
 	if(empty($data['org_name'])) throw new Exception('org name required');
+	//auth
+	if(!isset($config['user'][$data['user']])) throw new Exception('user doesnt exist');
+	if($data['password'] != $config['user'][$data['user']]) throw new Exception('password invalid');
 } catch(Exception $e){
 	dolog('ERROR: '.$e->getMessage());
 	exit;
