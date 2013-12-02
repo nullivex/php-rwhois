@@ -24,7 +24,7 @@ The API for using this service is pretty simple.
 
 ### Add Block
 
-`server/addblock.php?<request>`
+`//server/addblock.php?<request>`
 
 The following parameters can be passed to the block request and can be POST or GET.
 
